@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="css/patternfly.css" type="text/css">
+    <link rel="stylesheet" href="css/patternfly-addons.css" type="text/css">   
+<head>
+  
+</head>
+<body class="container">
 
+    <header class="pf-c-masthead" id="basic-masthead">
+        <span class="pf-c-masthead__toggle">
+        </span>
+        <div class="pf-c-masthead__main">
+          <h2>XMPP MESSAGE USING SOCKETS</h2>
+          <a class="pf-c-masthead__brand" href="#"></a>
+        </div>
+        <div class="pf-c-masthead__content">
+          <%= locals.socket %>
+        </div>
+      </header>
+
+<br>
+<input type="text" class="message">
+<button onclick="sendMessage()">Send message</button>
+
+<h3></h3>
+
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+ 
+const socket = io(); 
+  socket.on('connection');
+
+  socket.emit()
+
+  socket.on("message", (data) => {
+    // keep below commented so you dont have anyone hacking you
+    // document.querySelector('h3').innerHTML = data
+  })
+  const sendMessage = () => {
+    const messageInput = document.querySelector(".message")
+    const message = messageInput.value
+    
+    socket.emit('message', message)
+		            	
+  }
+
+</script>
+
+</body>
+</html
